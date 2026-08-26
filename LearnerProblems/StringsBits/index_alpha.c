@@ -1,0 +1,42 @@
+#include <unistd.h>
+
+int	main(int argc, char **argv)
+{
+	char *alp = "abcdefghijklmnopqrstuvwxyz";
+	char *Alp = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	int i = 0;
+	int j;
+	char *s;
+	if (argc == 1 || argc > 2)
+		write(1, "wrong number of arguments\n", 26);
+	else
+	{
+		s = argv[1];
+		while (s[i])
+		{
+			if (s[i] >= 'A' && s[i] <= 'Z')
+			{
+				j = 0;
+				while (s[i] != Alp[j])
+				{
+					write(1, &s[i], 1);
+					j++;
+				}
+			}
+			else if (s[i] >= 'a' && s[i] <= 'z')
+			{
+				j = 0;
+				while (s[i] != alp[j])
+				{
+					write(1, &s[i], 1);
+					j++;
+				}
+			}
+			else
+				write(1, &s[i], 1);
+			i++;
+		}
+		write(1, "\n", 1);
+	}
+	return (0);
+}
