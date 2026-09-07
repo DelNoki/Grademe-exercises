@@ -16,7 +16,7 @@ int	main(int argc, char **argv)
 	if (a == b)
 		return (a);
 	int gcd = 1;
-	while (n < a && n < b)
+	while (n <= a && n <= b)
 	{
 		if (a % n == 0 && b % n == 0)
 			gcd = n;
